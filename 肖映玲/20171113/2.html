@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function QAQ (num){
+        for(var a = 1; a <= num; a ++){  //几行数组
+            var aa = []; 
+            for(var b =  1; b <= num-a; b ++){ // 往aa里面输入空格
+                aa.push(" ");
+            }
+            for(var c = 1; c <= a*2-1; c ++){ //设置每一行有多少星星
+                aa.push("*");
+            }
+            var str = aa.join(" ");  //转为字符串，字符串之间的间隔由中间的间隔符隔开
+            console.log(str);
+        }
+    }
+    QAQ(5);
+</script>
