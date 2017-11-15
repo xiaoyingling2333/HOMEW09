@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #a1, #a2{
+            width: 100px;
+            height: 30px;
+            border: 2px solid black;
+            text-align: center;
+            line-height: 30px;
+        }
+        #a1{
+            background-color: aqua;
+        }
+        #a2{
+            background-color: palevioletred;
+        }
+        div{
+            width: 400px;
+            height: 300px;
+            margin: 20px 0;
+            font-size: 12p
+        }
+    </style>
+</head>
+<body>
+    <input type="text" value="字号增大" id = "a1"/>
+    <input type="text" value="字号减小" id = "a2"/>
+    <div id = "a3">人生若只如初见，何事秋风悲画扇。<br>等闲变却故人心，却道故人心易变。</div>
+</body>
+</html>
+<script>
+    var a1 = document.getElementById("a1");
+    var a2 = document.getElementById("a2");
+    var a3 = document.getElementById("a3");
+    var bb = 12;
+    a1.onclick = function(){
+        if(bb <= 24){
+            bb += 2;
+            a3.style.fontSize = bb + "px";
+        }
+    }
+    a2.onclick = function(){
+        if(bb >= 12){
+            bb -= 2;
+            a3.style.fontSize = bb + "px";
+        }
+    }
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       div{
+           width: 100px;
+           height: 30px;
+           margin: 200px auto;
+           background: green;
+           text-align: center;
+           line-height: 30px;
+       }
+    </style>
+</head>
+<body>
+    <div id = "aa">十天内免登陆</div>
+</body>
+</html>
+<script>
+    var aa = document.getElementById("aa");
+    aa.onmousemove = function(){
+        aa.style.border="3px solid yellow";
+    }
+    aa.onmouseout = function(){
+        aa.style.border="0";
+    }
+</script>
