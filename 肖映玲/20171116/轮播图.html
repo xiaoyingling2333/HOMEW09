@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            width: 700px;
+            height: 500px;
+            border: 2px solid black;
+            margin: 100px 400px;
+            overflow: hidden;
+            position: relative;
+        }
+        header div{
+            width: 4200px;
+            height: 500px;
+        }
+        header div img{
+            width: 700px;
+            height: 500px;
+            float: left;
+        }
+        button{
+            color:black;
+        }
+        #btn1{
+            position: absolute;
+            left: 0;
+            top: 230px;
+            z-index: 999;
+        }
+        #btn2{
+            position: absolute;
+            right: 0;
+            top: 230px;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+           <img src = "0.jpg" />
+           <img src = "1.jpg" />
+           <img src = "2.jpg" />
+           <img src = "3.jpg" />
+           <img src = "4.jpg" />
+           <img src = "5.jpg" />
+        </div>
+        <button id="btn1">◀</button>
+        <button id="btn2">▶</button>     
+    </header>
+</body>
+</html>
+<script>
+    var oDiv = document.querySelector("div");
+    var btn = document.querySelectorAll("button");
+    var aa = 0;
+
+    btn[0].onclick = function () {
+        if(aa >= -2800){
+            aa = aa-700;
+             oDiv.style.marginLeft = aa+"px";
+        }else{
+            aa = 0;
+            oDiv.style.marginLeft = aa+"px";
+        }
+    }
+    btn[1].onclick = function () {
+        if(aa < 0){
+            aa = aa+700;
+             oDiv.style.marginLeft = aa+"px";
+        }else{
+            aa = -2800;
+            oDiv.style.marginLeft = aa+"px";
+        }
+    }
+</script>
