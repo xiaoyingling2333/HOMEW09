@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            padding-top: 10px;
+            width: 160px;
+            height: 100px;
+            background: palegreen;
+            position: absolute;
+            left: 600px;
+            bottom: 25px;
+            color: red;
+            line-height: 30px;
+            font-family: "宋体";
+            text-align: center;
+        }
+        button{
+            background: greenyellow;
+            position: absolute;
+            left: 635px;
+            bottom: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div>烟花到底是从下面看好<br>还是上面看好<br>还是侧面看好</div>
+    <button>点击放烟花</button>
+</body>
+</html>
+<script>
+    var oDiv = document.querySelector("div");
+    var oBtn = document.querySelector("button");
+    var oTop = 500;
+    var temp = 0;
+    
+    oBtn.onclick = function(){
+              var timer = setInterval(function () {
+                  temp++;
+                  oTop-=60;
+                  if(temp*1000 >= 6000){
+                      clearInterval(timer);
+                      oDiv.style.width = "200px";
+                      oDiv.style.height = "200px";
+                      oTop-=60;
+                      oDiv.style.top = oTop+"px";
+                      oDiv.style.left = "200px";
+                      console.log(oTop)
+                  }
+                  oDiv.style.top = oTop+"px";
+                  
+              },1000);}
+</script>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 50px;
+            padding: 5px 10px;
+            /* border: 5px solid #3ae; */
+            background: palegreen;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            color: white;
+        }
+        button{
+            width: 80px;
+            height: 30px;
+            padding: 5px 10px;
+            border-radius: 10px;
+            margin-left: 40px;
+            border: none;
+            outline: none;
+            background-color: #ff6600;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div>点击按钮开始点名</div>
+    <button>开始</button>
+</body>
+</html>
+<script>
+    var oDiv = document.querySelector("div");
+    var oBtn = document.querySelector("button");
+    var names = ["1","2","3","4","5","6","7","8","9"];
+    var oIndex;//数组下标范围内的随机数
+    var speedTime = 10;
+    var totalTime = 1000;
+    oBtn.onclick = function (){
+        var times = 0;
+        var timer = setInterval(function () {
+            times ++;
+            if(times >= speedTime/totalTime){
+                clearInterval(timer);
+            }
+        //0~9的随机数
+        oIndex = parseInt(Math.random() * (8-0+1)) + 0;
+        oDiv.innerHTML = names[oIndex];// 把名字数组中
+    },100);
+    };
+</script>
