@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body, img, ul, li{margin: 0;padding: 0}
+        li{list-style: none}
+        div{
+            width: 800px;
+            height: 130px;
+            border: 10px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden; 
+        }
+        div ul{
+            width: 5000px;
+            height: 130px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        div ul li{
+            float: left;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><img src="shuzi/0.png" alt=""></li>
+            <li><img src="shuzi/1.png" alt=""></li>
+            <li><img src="shuzi/2.png" alt=""></li>
+            <li><img src="shuzi/3.png" alt=""></li>
+            <li><img src="shuzi/4.png" alt=""></li>
+            <li><img src="shuzi/5.png" alt=""></li>
+            <li><img src="shuzi/6.png" alt=""></li>
+            <li><img src="shuzi/7.png" alt=""></li>
+            <li><img src="shuzi/8.png" alt=""></li>
+            <li><img src="shuzi/9.png" alt=""></li>
+            <li><img src="shuzi/10.png" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>
+<script src="animate.js"></script>
+<script>
+    var oDiv = document.querySelector("div");
+    var oUl = document.querySelector("ul");
+    var oLis = document.querySelectorAll("ul li");
+    var oLisLength = oLis.length;
+
+    oUl.innerHTML += oUl.innerHTML;
+     var idx = 0;
+
+     function roll () {
+         idx ++;
+         animate(oUl,{"left":-210 * idx},1000,"Linear",function () {
+             if (idx > oLisLength - 1) {
+                 idx = 0;
+                 oUl.style.left = 0;
+             }
+         })
+     }
+     var timer = setInterval(roll,3000);
+
+     oUl.onmouseover = function () {
+         clearInterval(timer);
+     }
+     oUl.onmouseout = function () {
+        timer = setInterval(roll,3000);
+     }
+</script>
