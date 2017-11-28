@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0}
+        body, ul, li, header, section, aside,img{
+            margin: 0;
+            padding: 0;
+        }
+        img{margin-top:0px;}
+        li{list-style: none}
+        header{
+            width: 380px;
+            height: 272px;
+            
+            margin: 200px auto;
+        }
+        section{
+            width: 380px;
+            height: 230px;
+            overflow: hidden;
+            }
+        
+        aside{
+            width: 380px;
+            height: 1150px;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+        aside img{
+            width: 380px;
+            height: 230px;
+            display: block;
+        }
+        header ul{
+            width: 380px;
+            height: 46px;
+        }
+        header ul li{
+            width: 76px;
+            height: 46px;
+            float: left;
+            background: #3aa;
+        }
+        .cur{background-color: #a3a}
+        header ul li img{
+            width: 72px;
+            height: 42px;
+            margin:2px ;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <section>
+            <aside>
+                <img src="0.jpg" alt="">
+                <img src="1.jpg" alt="">
+                <img src="2.jpg" alt="">
+                <img src="3.jpg" alt="">
+                <img src="4.jpg" alt="">
+            </aside>
+        </section>
+        <ul>
+            <li class="cur"><img src="0.jpg" alt=""></li>
+            <li><img src="1.jpg" alt=""></li>
+            <li><img src="2.jpg" alt=""></li>
+            <li><img src="3.jpg" alt=""></li>
+            <li><img src="4.jpg" alt=""></li>
+        </ul>
+    </header>
+</body>
+</html>
+<script src="animate.js"></script>
+<script>
+    var oAside = document.querySelector("aside");
+    var Imgs = document.querySelectorAll("aside img");
+    var oUl = document.querySelector("header ul");
+    var oLis = document.querySelectorAll("header ul li");
+   
+    oAside.innerHTML += oAside.innerHTML;
+
+    var idx = 0;
+
+    function roll () {
+        idx ++;
+        animate(oAside,{"top": -230 * idx},1000,"Linear",function () {
+            if(idx > Imgs.length - 1){
+                idx = 0;
+                oAside.style.top = 0;
+            }
+        });
+    };
+    var timer = setInterval(roll,3000);
+
+    
+    for(var j = 0; j < oLis.length; j ++){
+        (function(m){
+            oLis[j].onclick = function () {
+            idx = m;
+            mm();
+            animate(oAside,{"top": -230 * idx},1000,"Linear");}
+        })(j);
+    };
+           
+        function mm(n) {
+            var n = idx;
+            for(var i = 0; i < oLis.length; i ++){
+            oLis[i].className = "";
+        }
+        oLis[n].className = "cur";
+    }
+       
+</script>
